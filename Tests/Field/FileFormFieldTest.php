@@ -56,6 +56,7 @@ class FileFormFieldTest extends FormFieldTestCase
         $this->assertEquals(basename(__FILE__), $value['name'], "->$method() sets the name of the file field");
         $this->assertEquals('', $value['type'], "->$method() sets the type of the file field");
         $this->assertInternalType('string', $value['tmp_name'], "->$method() sets the tmp_name of the file field");
+        $this->assertEquals(basename($value['name']), basename($value['tmp_name']), "->$method() sets the same base name for name and tmp_name of the file field");
         $this->assertEquals(0, $value['error'], "->$method() sets the error of the file field");
         $this->assertEquals(filesize(__FILE__), $value['size'], "->$method() sets the size of the file field");
     }

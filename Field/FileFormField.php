@@ -60,12 +60,6 @@ class FileFormField extends FormField
             $error = UPLOAD_ERR_OK;
             $size = filesize($value);
             $name = basename($value);
-
-            // copy to a tmp location
-            $tmp = tempnam(sys_get_temp_dir(), 'upload');
-            unlink($tmp);
-            copy($value, $tmp);
-            $value = $tmp;
         } else {
             $error = UPLOAD_ERR_NO_FILE;
             $size = 0;
